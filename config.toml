@@ -1,0 +1,39 @@
+[llm]
+base_url = "http://100.78.108.50:11434"
+model = "ornith-1.5:35b"
+num_ctx = 32768
+keep_alive = "10m"
+temperature = 0.0
+timeout_sec = 300
+chunk_input_tokens = 8000
+think = false
+concurrency = 4
+
+[fetch]
+crawl4ai_url = "http://crawl4ai.localhost/md"
+concurrency = 2
+interval_ms = 1000
+
+[items]
+min = 30
+max = 200
+# priority 90（検索ヒット）が最終件数に占める上限。0.0 で無効。
+search_hit_ratio = 0.4
+
+[dedup]
+jaccard = 0.6
+
+[store]
+data_dir = "data"
+
+[search]
+base_url = "http://searxng.localhost"
+pageno = 1
+
+[discover]
+mode = "static"
+max_turns = 5
+target_urls = 12
+max_search_urls = 8
+# 英語の Portal:Current events を候補に含めるか（既定 false）
+with_portal = false
